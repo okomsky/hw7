@@ -35,13 +35,18 @@ public class Main {
     }
     public static void task3() {
         System.out.println("Задача 3");
-        double population = 12_000_000;
-        double fertilityRate = 17%1_000;
-        double mortalityRate = 8%1_000;
+        int population = 12_000_000;
+        int fertilityRate = 17;
+        int mortalityRate = 8;
+        int fertilityPerYear = 0;
+        int mortalityPerYear = 0;
         int year = 0;
         while (year <= 10) {
+            fertilityPerYear = population / 1_000 * fertilityRate;
+            mortalityPerYear = population / 1_000 * mortalityRate;
+            population = population + fertilityPerYear - mortalityPerYear;
+
             System.out.println("Год " + year + " , численность населения составляет " + population);
-            population = population + (fertilityRate * 12_000 - mortalityRate * 12_000);
             year++;
         }
     }
